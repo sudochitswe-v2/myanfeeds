@@ -1,0 +1,71 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import "tailwindcss";
+
+:root {
+  --primary-color: #7B2CBF;
+  --secondary-color: #9D4EDD;
+  --accent-color: #3b82f6;
+  --theme-color: var(--primary-color);
+  --background-color: #ffffff;
+  --text-color: #1f2937;
+  --card-background: #ffffff;
+  --border-color: #e5e7eb;
+}
+
+/* Dark theme variables */
+.dark {
+  --background-color: #1a1a1a;
+  --text-color: #f3f4f6;
+  --card-background: #1f2937;
+  --border-color: #374151;
+}
+
+/* Apply theme color to body for consistent theming */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Card styling for both themes */
+.card {
+  background-color: var(--card-background);
+  border-color: var(--border-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Link styling for both themes */
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* Button styling for both themes */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Input styling for both themes */
+input, textarea, select {
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(123, 44, 191, 0.1);
+}

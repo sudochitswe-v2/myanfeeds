@@ -1,0 +1,60 @@
+{
+  "mediaSources": [
+    {
+      "id": "bbc",
+      "name": "BBC Burmese",
+      "description": "British Broadcasting Corporation news service",
+      "logo": "https://static.files.bbci.co.uk/ws/simorgh-assets/public/burmese/images/icons/icon-144x144.png",
+      "feedUrl": "https://feeds.bbci.co.uk/burmese/rss.xml"
+    },
+    {
+      "id": "voa",
+      "name": "VOA (Burmese)",
+      "description": "Voice of America Burmese Service",
+      "logo": "https://burmese.voanews.com/Content/responsive/VOA/my-MM/img/logo.svg",
+      "feedUrl": "https://burmese.voanews.com/api/zb_u_l-vomx-tpeqrjy"
+    },
+    {
+      "id": "mizzima",
+      "name": "Mizzima News",
+      "description": "Independent news cooperative",
+      "logo": "/public/logos/mizzima.png",
+      "feedUrl": "https://bur.mizzima.com/feed"
+    },
+    {
+      "id": "rfamm",
+      "name": "Radio Free Asia (Burmese)",
+      "description": "Radio Free Asia Burmese Service",
+      "logo": "https://static.themebuilder.aws.arc.pub/radiofreeasia/1697742723512.png",
+      "feedUrl": "https://www.rfa.org/arc/outboundfeeds/burmese/rss"
+    },
+    {
+      "id": "mmnow",
+      "name": "Myanmar Now",
+      "description": "Independent news organization",
+      "logo": "https://myanmar-now.org/wp-content/uploads/sites/7/2023/10/Myanmar-Now-LogoWeb-White-small.png",
+      "feedUrl": "https://myanmar-now.org/mm/feed"
+    },
+    {
+      "id": "irrawaddy",
+      "name": "Irrawaddy Burmese Edition",
+      "description": "Independent news organization",
+      "logo": "/public/logos/irrawaddy.png",
+      "feedUrl": "https://burma.irrawaddy.com/feed"
+    },
+    {
+      "id": "arakanbays",
+      "name": "Arakan Bays",
+      "description": "Independent news organization",
+      "logo": "https://i0.wp.com/arakanbaynews.com/wp-content/uploads/2022/09/arakanbaynewslogo3.transsmall.png?fit=100%",
+      "feedUrl": "https://arakanbaynews.com/feed/"
+    },
+    {
+      "id": "kicnews",
+      "name": "Karen Information Center",
+      "description": "Independent news organization",
+      "logo": "https://kicnews.org/wp-content/uploads/2018/01/kiclogo-1.png",
+      "feedUrl": "https://kicnews.org/feed/"
+    }
+  ]
+}
