@@ -1,5 +1,6 @@
 import type { FeedItem } from '../models/FeedItem';
 import React from 'react';
+import { HtmlRenderer } from '../../../utils/HtmlRenderer';
 
 interface FeedCardProps {
     item: FeedItem;
@@ -29,7 +30,9 @@ export const FeedCard: React.FC<FeedCardProps> = ({ item }) => {
                     {item.pubDate && <span>{new Date(item.pubDate).toLocaleDateString()}</span>}
                 </div>
 
-                <p className="mb-4">{item.description.substring(0, 200)}{item.description.length > 350 ? '...' : ''}</p>
+                <div className="mb-4">
+                    <HtmlRenderer html={item.description} maxLength={350} />
+                </div>
 
                 <a
                     href={item.link}

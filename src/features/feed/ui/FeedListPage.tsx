@@ -6,6 +6,7 @@ import ThemeToggle from '../../common/ui/ThemeToggle';
 import { fetchFeeds } from '../index';
 import type { FeedItem } from '../models/FeedItem';
 import { FeedCard } from '../components/FeedCard';
+import { Spinner } from '../../../components/Spinner';
 
 
 
@@ -68,11 +69,14 @@ const FeedListPage: React.FC = () => {
           >
             Back
           </button>
-          <h1 className="text-2xl font-bold">Loading feeds...</h1>
+          <h1 className="text-2xl font-bold">Loading feeds</h1>
 
           <ThemeToggle />
         </div>
-        {/* <p>Loading {selectedMedia?.name} feeds...</p> */}
+        <div className="flex justify-center items-center">
+          <Spinner size="lg" className="text-blue-500" />
+          {/* <span className="ml-3 text-lg">Fetching latest articles...</span> */}
+        </div>
       </div>
     );
   }
