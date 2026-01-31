@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getMediaSources } from '../utils/mediaData';
-import type { Media } from '../utils/mediaData';
-import ThemeToggle from './ThemeToggle';
+import { getMediaSources } from '../../media/index';
+import type { Media } from '../../media/index';
+import ThemeToggle from '../../common/ui/ThemeToggle';
 
 const MediaListPage: React.FC = () => {
   const [mediaSources, setMediaSources] = useState<Media[]>([]);
@@ -15,7 +15,7 @@ const MediaListPage: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-center">Myan Feeds</h1>
+        <h1 className="text-2xl font-bold text-center">MyanFeeds</h1>
         <ThemeToggle />
       </div>
 
@@ -34,7 +34,6 @@ const MediaListPage: React.FC = () => {
                     alt={`${media.name} logo`}
                     className="h-12 object-contain"
                     onError={(e) => {
-                      // console.log(e);
                       const target = e.target as HTMLImageElement;
                       target.onerror = null; // Prevent infinite loop
                       target.src = `https://placehold.co/100x40?text=${encodeURIComponent(media.name.substring(0, 3))}`;
@@ -44,9 +43,6 @@ const MediaListPage: React.FC = () => {
               )}
               <h2 className="text-xl font-semibold mb-2">{media.name}</h2>
               <p className="mb-4">{media.description}</p>
-              <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded dark:bg-blue-900 dark:text-blue-100">
-                View Feeds
-              </span>
             </div>
           </Link>
         ))}

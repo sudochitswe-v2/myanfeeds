@@ -1,10 +1,10 @@
 import './App.css';
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { initializeTheme } from './utils/theme';
-import { ThemeProvider } from './contexts/ThemeContext';
-import MediaListPage from './components/MediaListPage';
-import FeedListPage from './components/FeedListPage';
+import { initializeTheme } from './features/common/hooks/theme';
+import { ThemeProvider } from './features/common/hooks/ThemeContext';
+import { MediaListPage } from './features/media/index';
+import { FeedListPage } from './features/feed/index';
 
 // Import the disable-devtool function
 function App() {

@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import type { Theme } from '../utils/theme';
-import { getPreferredTheme, setTheme } from '../utils/theme';
+import type { Theme } from './theme';
+import { getPreferredTheme, setTheme } from './theme';
 
 // Define the context type
 interface ThemeContextType {
