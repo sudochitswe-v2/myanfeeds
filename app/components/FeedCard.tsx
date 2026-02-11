@@ -19,9 +19,9 @@ export function FeedCard({ item }: FeedCardProps) {
   return (
     <div className="card bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700">
       <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-        <a 
-          href={item.link} 
-          target="_blank" 
+        <a
+          href={item.link}
+          target="_blank"
           rel="noopener noreferrer"
           className="hover:underline"
         >
@@ -32,7 +32,11 @@ export function FeedCard({ item }: FeedCardProps) {
         {sanitizedDescription}
       </div>
       <div className="text-sm text-gray-500 dark:text-gray-400">
-        {item.pubDate && <span>Published: {new Date(item.pubDate).toLocaleDateString()}</span>}
+        {item.pubDate && (
+          <span>
+            Published: {item.pubDate ? new Date(item.pubDate).toLocaleDateString() : 'Unknown date'}
+          </span>
+        )}
         {item.creator && <span className="ml-2">By: {item.creator}</span>}
       </div>
     </div>

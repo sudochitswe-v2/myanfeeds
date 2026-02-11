@@ -40,7 +40,8 @@
       "name": "Irrawaddy Burmese Edition",
       "description": "Independent news organization",
       "logo": "/logos/irrawaddy.png",
-      "feedUrl": "https://burma.irrawaddy.com/feed"
+      "feedUrl": "https://burma.irrawaddy.com/feed",
+      "byPassCORS": true
     },
     {
       "id": "arakanbays",
