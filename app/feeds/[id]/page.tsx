@@ -25,11 +25,18 @@ export default async function FeedPage({ params }: FeedPageProps) {
   let feedItems: FeedItem[] = [];
   let error: string | null = null;
 
-  try {
-    feedItems = await fetchFeeds(media.feedUrl);
+    try {
+    // Validate feed URL before attempting to fetch
+    const url = new URL(media.feedUrl);
+    if (!url.protocol.startsWith('http')) {
+      throw new Error('Invalid URL protocol');
+    }
+
+    feedItems = await fetchFeeds(media);
   } catch (err) {
-    console.error('Error fetching RSS feed:', err);
-    error = 'Failed to load feed';
+    console.error('Error in FeedPage:', err);
+    error = err instanceof Error ? err.message : 'Failed to load feed';
+    feedItems = []; // Ensure feedItems is always defined
   }
 
   return (
@@ -62,12 +69,13 @@ export default async function FeedPage({ params }: FeedPageProps) {
 
       {error ? (
         <div className="text-center">
-          <p className="text-red-500">{error}</p>
+          <p className="text-red-500 text-lg">Failed to load feed: {error}</p>
+          <p className="mt-2 text-gray-600 dark:text-gray-400">Please try again later or check back soon.</p>
           <Link
-            href={`/feeds/${mediaId}`}
+            href="/"
             className="mt-4 btn-primary py-2 px-4 rounded inline-block bg-blue-500 text-white hover:bg-blue-600"
           >
-            Retry
+            Browse Other Feeds
           </Link>
         </div>
       ) : (
@@ -77,7 +85,10 @@ export default async function FeedPage({ params }: FeedPageProps) {
               <FeedCard key={item.id} item={item} />
             ))
           ) : (
-            <p>No feed items found.</p>
+            <div className="text-center">
+              <p>No feed items found.</p>
+              <p className="text-gray-600 dark:text-gray-400 mt-2">This feed may be empty or temporarily unavailable.</p>
+            </div>
           )}
         </div>
       )}

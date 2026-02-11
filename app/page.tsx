@@ -4,9 +4,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ThemeToggle } from "./components/theme-toggle";
 import { getMediaSources } from './lib/reader';
+import { useTheme } from 'next-themes';
 
 export default function Home() {
   const mediaSources = getMediaSources();
+  const { theme } = useTheme();
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -23,9 +25,9 @@ export default function Home() {
           <Link
             key={media.id}
             href={`/feeds/${media.id}`}
-            className="block card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-700"
+            className="block"
           >
-            <div className="p-6">
+            <div className={`rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border p-6 ${theme === 'dark' ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
               {media.logo && (
                 <div className="flex justify-center mb-4">
                   <Image
@@ -42,8 +44,8 @@ export default function Home() {
                   />
                 </div>
               )}
-              <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">{media.name}</h2>
-              <p className="mb-4 text-gray-600 dark:text-gray-300">{media.description}</p>
+              <h2 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-gray-100' : 'text-gray-900'}`}>{media.name}</h2>
+              <p className={`mb-4 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{media.description}</p>
             </div>
           </Link>
         ))}
