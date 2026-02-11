@@ -43,8 +43,6 @@ const parseXmlToFeed = async (xmlString: string): Promise<FeedItem[]> => {
       item: ['creator', 'dc:creator', 'author'],
     }
   });
-  console.log('Parsing XML feed...');
-  console.log(xmlString);
   const feed = await parser.parseString(xmlString);
   // Map the feed items to our interface
   const items: FeedItem[] = feed.items.slice(0, 20).map((item, index) => ({
