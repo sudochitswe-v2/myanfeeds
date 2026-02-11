@@ -1,14 +1,11 @@
-'use client';
-
-import Link from 'next/link';
+// 'use client';
 import Image from 'next/image';
 import { ThemeToggle } from "./components/theme-toggle";
 import { getMediaSources } from './lib/reader';
-import { useTheme } from 'next-themes';
+import { MediaItemCard } from './components/MediaItemCard';
 
 export default function Home() {
   const mediaSources = getMediaSources();
-  const { theme } = useTheme();
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -22,32 +19,7 @@ export default function Home() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {mediaSources.map((media) => (
-          <Link
-            key={media.id}
-            href={`/feeds/${media.id}`}
-            className="block"
-          >
-            <div className={`rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border p-6 ${theme === 'dark' ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
-              {media.logo && (
-                <div className="flex justify-center mb-4">
-                  <Image
-                    src={media.logo}
-                    alt={`${media.name} logo`}
-                    width={200}
-                    height={80}
-                    className="h-12 object-contain"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.onerror = null; // Prevent infinite loop
-                      target.src = `https://placehold.co/100x40?text=${encodeURIComponent(media.name.substring(0, 3))}`;
-                    }}
-                  />
-                </div>
-              )}
-              <h2 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-gray-100' : 'text-gray-900'}`}>{media.name}</h2>
-              <p className={`mb-4 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{media.description}</p>
-            </div>
-          </Link>
+          <MediaItemCard key={media.id} media={media} />
         ))}
       </div>
     </div>
