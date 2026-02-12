@@ -17,7 +17,7 @@
     {
       "id": "mizzima",
       "name": "Mizzima News",
-      "description": "Independent news cooperative",
+      "description": "Independent news organization",
       "logo": "/logos/mizzima.png",
       "feedUrl": "https://bur.mizzima.com/feed"
     },
@@ -56,6 +56,20 @@
       "description": "Independent news organization",
       "logo": "/logos/kic.png",
       "feedUrl": "https://kicnews.org/feed/"
+    },
+    {
+      "id": "frontiermyanmar",
+      "name": "Frontier Myanmar",
+      "description": "Independent news organization",
+      "logo": "/logos/frontiermyanmar.jpg",
+      "feedUrl": "https://www.frontiermyanmar.net/mm/feed/"
+    },
+    {
+      "id": "deltanews",
+      "name": "Delta News Agency",
+      "description": "Independent news organization",
+      "logo": "/logos/deltanews.png",
+      "feedUrl": "https://deltanewsagency.com/feed/"
     }
   ]
 }
