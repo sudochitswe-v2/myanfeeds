@@ -50,7 +50,7 @@ export function MediaItemCard({ media }: MediaItemCardProps) {
                         </div>
                     )}
                     <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">{media.name}</h2>
-                    <p className="mb-4 text-gray-600 dark:text-gray-300">{media.description}</p>
+                    {/* <p className="mb-4 text-gray-600 dark:text-gray-300">{media.description}</p> */}
                 </div>
             </Link>
         );
@@ -80,7 +80,7 @@ export function MediaItemCard({ media }: MediaItemCardProps) {
                     </div>
                 )}
                 <h2 className={`text-xl font-semibold mb-2 ${currentTheme === 'dark' ? 'text-gray-100' : 'text-gray-900'}`}>{media.name}</h2>
-                <p className={`mb-4 ${currentTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{media.description}</p>
+                {/* <p className={`mb-4 ${currentTheme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{media.description}</p> */}
             </div>
         </Link>
     );

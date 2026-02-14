@@ -64,7 +64,7 @@ export default async function FeedPage({ params }: FeedPageProps) {
           </div>
         )}
         <h1 className="text-3xl font-bold mb-2">{media.name} Feeds</h1>
-        <p className="text-center">{media.description}</p>
+        {/* <p className="text-center">{media.description}</p> */}
       </div>
 
       {error ? (
