@@ -25,7 +25,7 @@ export default async function FeedPage({ params }: FeedPageProps) {
   let feedItems: FeedItem[] = [];
   let error: string | null = null;
 
-    try {
+  try {
     // Validate feed URL before attempting to fetch
     const url = new URL(media.feedUrl);
     if (!url.protocol.startsWith('http')) {
