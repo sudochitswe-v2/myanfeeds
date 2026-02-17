@@ -3,6 +3,8 @@
 import { FeedItem } from '@/app/types/feed';
 import { FeedCardSkeleton } from './FeedCardSkeleton';
 import { useTheme } from 'next-themes';
+import Link from 'next/link';
+import { generateArticleId } from '@/app/utils/articleUtils';
 
 interface FeedCardProps {
   item: FeedItem;
@@ -18,17 +20,18 @@ export function FeedCard({ item }: FeedCardProps) {
   const sanitizedDescription = sanitizeHTML(item.description);
   const { theme } = useTheme();
 
+  // Generate a unique ID for the article based on the link
+  const articleId = generateArticleId(item.link);
+
   return (
     <div className={`rounded-lg shadow-md p-6 border ${theme === 'dark' ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
       <h3 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-gray-100' : 'text-gray-900'}`}>
-        <a
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:underline"
+        <Link
+          href={`/articles/${articleId}?url=${encodeURIComponent(item.link)}&title=${encodeURIComponent(item.title)}`}
+          className="hover:underline" 
         >
           {item.title}
-        </a>
+        </Link>
       </h3>
       <div className={`mb-3 feed-content ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
         {sanitizedDescription}
