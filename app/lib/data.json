@@ -70,6 +70,28 @@
       "description": "Independent news organization",
       "logo": "/logos/deltanews.png",
       "feedUrl": "https://deltanewsagency.com/feed/"
+    },
+    {
+      "id": "shannews",
+      "name": "SHAN burmese news",
+      "description": "Independent news organization",
+      "logo": "/logos/shannews.png",
+      "feedUrl": "https://burmese.shannews.org/feed"
+    },
+    {
+      "id": "dvb",
+      "name": "Decromatic Voice of Burma",
+      "description": "Independent news organization",
+      "logo": "/logos/dvb.png",
+      "feedUrl": "https://burmese.dvb.no/feed"
+    },
+    {
+      "id": "kng",
+      "name": "Kachin News Group",
+      "description": "Independent news organization",
+      "logo": "/logos/kng.png",
+      "feedUrl": "https://kachinnews.com/feed/",
+      "byPassCORS": true
     }
   ]
 }
