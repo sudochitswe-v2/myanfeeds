@@ -90,7 +90,7 @@
       "name": "Kachin News Group",
       "description": "Independent news organization",
       "logo": "/logos/kng.png",
-      "feedUrl": "https://kachinnews.com/feed/",
+      "feedUrl": "https://burmese.kachinnews.com/feed/",
       "byPassCORS": true
     }
   ]
