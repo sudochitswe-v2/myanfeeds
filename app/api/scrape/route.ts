@@ -44,24 +44,40 @@ export async function scrapeArticleContent(url: string) {
     // Load the HTML into cheerio
     const $ = load(html);
 
-    // Remove script and style elements to avoid unwanted content
-    $('script').remove();
-    $('style').remove();
-    $('nav').remove();
-    $('header').remove();
-    $('footer').remove();
-    $('aside').remove();
-    $('.advertisement').remove();
-    $('.ads').remove();
-    $('.ad').remove();
+    // List of selectors to remove (navigation, ads, etc.)
+    const selectorsToRemove = [
+      'script', 'style', 'nav', 'header', 'footer', 'aside',
+      '#nav', '#header', '#footer', '#sidebar',
+      '.nav', '.navbar', '.header', '.footer', '.sidebar', '.menu',
+      '.advertisement', '.ads', '.ad', '.social-share', '.related-posts',
+      'div[class*="nav"]', 'div[class*="navbar"]', 'div[class*="menu"]',
+      'nav[class*="nav"]', 'header[class*="header"]', 'footer[class*="footer"]'
+    ];
 
-    const contentElement = $('body');
+    selectorsToRemove.forEach(selector => {
+      $(selector).remove();
+    });
+
+    // Try to find the main content element
+    let contentElement = $('article');
+    if (contentElement.length === 0) {
+      contentElement = $('main');
+    }
+    if (contentElement.length === 0) {
+        // Fallback to div with common content classes
+        contentElement = $('.article-content, .post-content, .entry-content, #content, .content');
+    }
+    if (contentElement.length === 0) {
+      contentElement = $('body');
+    }
+
     // Extract the content
-
     let content = contentElement.html() || '';
-    // Clean up the content - remove extra whitespace and empty paragraphs
+    
+    // Clean up the content - remove extra whitespace and empty tags
     content = content.replace(/\s+/g, ' ').trim();
     content = content.replace(/<p>\s*<\/p>/g, '');
+    content = content.replace(/<div>\s*<\/div>/g, '');
 
     return content;
   } catch (error) {
