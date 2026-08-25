@@ -62,7 +62,8 @@
       "name": "Frontier Myanmar",
       "description": "Independent news organization",
       "logo": "/logos/frontiermyanmar.jpg",
-      "feedUrl": "https://www.frontiermyanmar.net/mm/feed/"
+      "feedUrl": "https://www.frontiermyanmar.net/mm/feed/",
+      "byPassCORS": true
     },
     {
       "id": "deltanews",
